@@ -21,7 +21,7 @@
     margin: 0;
   }
   ul.header {
-    background-color: #111000;
+    background-color: #111;
     padding: 0;
   }
   ul.header li a {
@@ -53,6 +53,12 @@
   </div>
 
   <script type="text/babel">
+    var { Router,
+      Route,
+      IndexRoute,
+      IndexLink,
+      Link } = ReactRouter;
+
     var destination = document.querySelector("#container");
 
     var Home = React.createClass({
@@ -72,12 +78,12 @@
       <div>
         <h1>Pub Finder</h1>
         <ul className="header">
-        <li>Home</li>
-          <li>London</li>
-          <li>Belfast</li>
+        <li><Link to="/">Home</Link></li>
+          <li><Link to="/">London</Link></li>
+          <li><Link to="/">Belfast</Link></li>
         </ul>
         <div className="content">
-          <Home/>
+          {this.props.children}
         </div>
       </div>
     )
@@ -85,11 +91,11 @@
 });
 
     ReactDOM.render(
-      <ReactRouter.Router>
-    <ReactRouter.Route path="/" component={App}>
-
-    </ReactRouter.Route>
-  </ReactRouter.Router>,
+      <Router>
+    <Route path="/" component={App}>
+    <IndexRoute component={Home}/>
+    </Route>
+  </Router>,
       destination
     );
   </script>
