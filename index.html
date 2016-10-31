@@ -65,12 +65,45 @@
       render: function() {
         return (
           <div>
-          <h2>HELLO</h2>
-          <p>Welcome to Pub Finder!</p>
+            <h2>HELLO</h2>
+            <p>Welcome to Pub Finder!</p>
           </div>
         );
       }
     });
+
+    var London = React.createClass({
+      render: function() {
+        return (
+          <div>
+            <h2>LONDON</h2>
+            <p>The easiest thing to do is post on
+            our <a href="http://forum.kirupa.com">forums</a>.
+            </p>
+          </div>
+        );
+      }
+    });
+
+    var Belfast = React.createClass({
+      render: function() {
+        return (
+          <div>
+            <h2>BELFAST</h2>
+            <p>Mauris sem velit, vehicula eget sodales vitae,
+            rhoncus eget sapien:</p>
+            <ol>
+              <li>Nulla pulvinar diam</li>
+              <li>Facilisis bibendum</li>
+              <li>Vestibulum vulputate</li>
+              <li>Eget erat</li>
+              <li>Id porttitor</li>
+            </ol>
+          </div>
+        );
+      }
+    });
+
 
     var App = React.createClass({
   render: function() {
@@ -94,6 +127,8 @@
       <Router>
     <Route path="/" component={App}>
     <IndexRoute component={Home}/>
+      <Route path="London" component={London} />
+      <Route path="BELFAST" component={Belfast} />
     </Route>
   </Router>,
       destination
